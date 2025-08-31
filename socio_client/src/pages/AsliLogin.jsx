@@ -4,7 +4,7 @@ import React from 'react';
 // import groupImg from '../assets/group_users.png';
 import { assets } from '../assets/assets';
 import { Star } from 'lucide-react';
-
+import { SignIn } from '@clerk/clerk-react';    
 const AsliLogin = () => {
   return (
     <div className='min-h-screen flex flex-col md:flex-row'>
@@ -30,12 +30,7 @@ const AsliLogin = () => {
            </div>
            {/* right side : Login form */}
            <div className='flex-1 flex items-center justify-center p-6 sm:p-10'>
-             <h2 className='text-2xl md:text-4xl font-bold mb-6'>Welcome back!</h2>
-             <form className='flex flex-col gap-4'>
-               <input type="email" placeholder='Email' className='p-4 border border-gray-300 rounded-md' />
-               <input type="password" placeholder='Password' className='p-4 border border-gray-300 rounded-md' />
-               <button className='bg-indigo-600 text-white p-4 rounded-md'>Login</button>
-             </form>
+             <SignIn />
            </div>
     </div>
   );
