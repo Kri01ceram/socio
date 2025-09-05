@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
+import MenuItems from "./MenuItems";
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const navigate = useNavigate();
   return (
@@ -20,6 +21,8 @@ duration-300 ease-in-out`}
           alt=""
         />
         <hr className="border-gray-300 mb-8" />
+        <MenuItems setSidebarOpen={setSidebarOpen} />
+
       </div>
     </div>
   );
