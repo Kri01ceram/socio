@@ -23,7 +23,11 @@ const Feed = () => {
         </div>
       </div>
       <div>
-        
+        <div>
+          <h1>
+          sponsored</h1>
+          </div>
+          <h1>Recent messages</h1>
       </div>
            
     </div>
