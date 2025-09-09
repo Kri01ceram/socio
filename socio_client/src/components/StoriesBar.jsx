@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { dummyStoriesData } from "../assets/assets";
 import { Plus } from "lucide-react";
+import moment from 'moment'
 
 // import { Plus } from "../assets/icons";
 const StoriesBar = () => {
@@ -20,9 +21,19 @@ const StoriesBar = () => {
             <div className="size-10 bg-indigo-500 rounded-full flex items-center justify-center mb-3">
               <Plus className="h-5 w-5 text-white" />
             </div>
-            <p className="text-sm font-medium text-gray-700 text-center">Create Story</p>
+            <p className="text-sm font-medium text-gray-700 text-center">Create Stories</p>
           </div>
         </div>
+        {
+              stories.map((story, index) => (
+              <div key={index} className={`relative rounded-1g shadow min-w-30 max-w-30 max-h-40 cursor-pointer hover:shadow-lg transition-all duration-200 bg-gradient-to-b from-indigo-500 to-purple-600 hover:from-indigo-700 hover: to-purple-800 active:scale-95`}>
+              <img src={story.user.profile_picture} alt="" className='absolute size-8 top-3 left-3 z-10 rounded-full ring ring-gray-100 shadow'/>
+              <p className='absolute top-18 left-3 text-white/60 text-sm truncate max-w-24'>{story.content}</p>
+              <p className='text-white absolute bottom-1 right-2 z-10 text-xs'>{moment(story.createdAt).fromNow()}</p>
+              </div>
+                         ))
+                         
+       }
       </div>
     </div>
   );
