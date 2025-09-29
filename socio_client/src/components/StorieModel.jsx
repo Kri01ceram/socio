@@ -17,7 +17,7 @@ const StorieModel = ({setShowModal , fetchStories}) => {
   const [media, setMedia] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const handleMediaUpload = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files?.[0];
     if (file) {
       setMedia(file);
 
@@ -37,6 +37,9 @@ const StorieModel = ({setShowModal , fetchStories}) => {
           </button>
           <h2 className="text-lg font-semibold">Create stories</h2>
           <span className="w-10"></span>
+        </div>
+        <div>
+          
         </div>
       </div>
     </div>
