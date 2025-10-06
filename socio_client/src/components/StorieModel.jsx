@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft,TextIcon } from "lucide-react";
 
-const StorieModel = ({setShowModal , fetchStories}) => {
+const StorieModel = ({ setShowModal, fetchStories }) => {
   const bgcolors = [
     "#f87171",
     "#fb923c",
@@ -32,14 +32,52 @@ const StorieModel = ({setShowModal , fetchStories}) => {
     <div className="fixed inset-0 z-110 min-h-screen bg-black/80 backdrop-blur text-white flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-4 flex items-center justify-between">
-          <button onClick={() => setShowModal(false)} className="text-white p-2 cursor-pointer">
+          <button
+            onClick={() => setShowModal(false)}
+            className="text-white p-2 cursor-pointer">
             <ArrowLeft />I
           </button>
           <h2 className="text-lg font-semibold">Create stories</h2>
           <span className="w-10"></span>
         </div>
-        <div>
-          
+        <div
+          className="rounded-lg h-96 flex items-center justify-center relative"
+          style={{ backgroundColor: background }}
+        >
+          {mode === "text" && (
+            <textarea
+              className="bg-transparent text-white w-full h-full p-6 text-lg resize-none focus:outline-none"
+              placeholder="What's on your mind?"
+              onChange={(e) => setText(e.target.value)}
+              value={text}
+            />
+          )}
+          {mode === "media" &&
+            previewUrl &&
+            (media?.type.startsWith("image") ? (
+              <img
+                src={previewUrl}
+                alt=""
+                className="object-contain max-h-full"
+              />
+            ) : (
+              <video src={previewUrl} className="object-contain max-h-full" />
+            ))}
+        </div>
+        <div className="flex mt-4 gap-2">
+          {bgcolors.map((color) => (
+            <button key={color} className="w-6 h-6 rounded-full ring cursor-pointer" style={{ backgroundColor: color }} onClick={() => setBackground(color)} />
+          ))}
+
+        </div>
+        <div className='flex gap-2 mt-4'>
+        <button onClick={()=> {setMode('text'); setMedia(null); setPreviewUrl(null)}} className={`flex-1 flex items-center justify-center gap-2 p-2 rounded ${mode === 'text' ? "bg-white text-black": "bg-zinc-800"}`}>
+            <TextIcon size={18}/> Text
+          </button>
+          <label className={`flex-1 flex items-center justify-center gap-2 p-2 rounded cursor-pointer ${mode === 'media' ? "bg-white text-black": "bg-zinc-800"}`}>
+            <TextIcon size={18}/> Media
+            <input onChange={(e)=>{handleMediaUpload (e); setMode('media')}} type="file" accept='image/*, video/*' className='hidden'/>
+           </label>
         </div>
       </div>
     </div>
