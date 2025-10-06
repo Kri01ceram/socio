@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowLeft,TextIcon } from "lucide-react";
+import { ArrowLeft,TextIcon, Upload } from "lucide-react";
 
 const StorieModel = ({ setShowModal, fetchStories }) => {
   const bgcolors = [
@@ -75,8 +75,8 @@ const StorieModel = ({ setShowModal, fetchStories }) => {
             <TextIcon size={18}/> Text
           </button>
           <label className={`flex-1 flex items-center justify-center gap-2 p-2 rounded cursor-pointer ${mode === 'media' ? "bg-white text-black": "bg-zinc-800"}`}>
-            <TextIcon size={18}/> Media
             <input onChange={(e)=>{handleMediaUpload (e); setMode('media')}} type="file" accept='image/*, video/*' className='hidden'/>
+               <Upload size={18}/> Media
            </label>
         </div>
       </div>
