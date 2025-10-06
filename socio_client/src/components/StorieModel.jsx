@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowLeft,TextIcon, Upload } from "lucide-react";
+import { ArrowLeft, TextIcon, Upload } from "lucide-react";
 
 const StorieModel = ({ setShowModal, fetchStories }) => {
   const bgcolors = [
@@ -34,7 +34,8 @@ const StorieModel = ({ setShowModal, fetchStories }) => {
         <div className="text-center mb-4 flex items-center justify-between">
           <button
             onClick={() => setShowModal(false)}
-            className="text-white p-2 cursor-pointer">
+            className="text-white p-2 cursor-pointer"
+          >
             <ArrowLeft />I
           </button>
           <h2 className="text-lg font-semibold">Create stories</h2>
@@ -66,19 +67,49 @@ const StorieModel = ({ setShowModal, fetchStories }) => {
         </div>
         <div className="flex mt-4 gap-2">
           {bgcolors.map((color) => (
-            <button key={color} className="w-6 h-6 rounded-full ring cursor-pointer" style={{ backgroundColor: color }} onClick={() => setBackground(color)} />
+            <button
+              key={color}
+              className="w-6 h-6 rounded-full ring cursor-pointer"
+              style={{ backgroundColor: color }}
+              onClick={() => setBackground(color)}
+            />
           ))}
-
         </div>
-        <div className='flex gap-2 mt-4'>
-        <button onClick={()=> {setMode('text'); setMedia(null); setPreviewUrl(null)}} className={`flex-1 flex items-center justify-center gap-2 p-2 rounded ${mode === 'text' ? "bg-white text-black": "bg-zinc-800"}`}>
-            <TextIcon size={18}/> Text
+        <div className="flex gap-2 mt-4">
+          <button
+            onClick={() => {
+              setMode("text");
+              setMedia(null);
+              setPreviewUrl(null);
+            }}
+            className={`flex-1 flex items-center justify-center gap-2 p-2 rounded ${
+              mode === "text" ? "bg-white text-black" : "bg-zinc-800"
+            }`}
+          >
+            <TextIcon size={18} /> Text
           </button>
-          <label className={`flex-1 flex items-center justify-center gap-2 p-2 rounded cursor-pointer ${mode === 'media' ? "bg-white text-black": "bg-zinc-800"}`}>
-            <input onChange={(e)=>{handleMediaUpload (e); setMode('media')}} type="file" accept='image/*, video/*' className='hidden'/>
-               <Upload size={18}/> Media
-           </label>
+          <label
+            className={`flex-1 flex items-center justify-center gap-2 p-2 rounded cursor-pointer ${
+              mode === "media" ? "bg-white text-black" : "bg-zinc-800"
+            }`}
+          >
+            <input
+              onChange={(e) => {
+                handleMediaUpload(e);
+                setMode("media");
+              }}
+              type="file"
+              accept="image/*, video/*"
+              className="hidden"
+            />
+            <Upload size={18} /> Media
+          </label>
         </div>
+        <button
+          className="flex items-center justify-center gap-2 text-white py-3 mt-4 w-full rounded bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 active:scale-95 transition cursor-pointer"
+        >
+          <Sparkle size={18} /> Create Story
+        </button>
       </div>
     </div>
   );
