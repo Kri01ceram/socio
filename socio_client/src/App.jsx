@@ -10,10 +10,13 @@ import Messages from "./pages/Messages";
 import ChatBox from "./pages/ChatBox";
 import {useUser} from '@clerk/clerk-react';
 import Layout from "./pages/Layout";
+import {Toaster} from 'react-hot-toast';
 const App = () => {
   const { user } = useUser();
 
   return (
+    <>
+    <Toaster />
     <Routes>
       <Route path="/" element={user ?<Layout /> : <Login />} >
       <Route index element={<Feed />} />
@@ -26,6 +29,7 @@ const App = () => {
       <Route path="/messages/:userId" element={<ChatBox />} />
       </Route>
     </Routes>
+    </>
   );
 };
 
