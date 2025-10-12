@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { dummyPostsData } from '../assets/assets'
 import Loading from '../components/Loading'
 import StoriesBar from '../components/StoriesBar'
+import PostCard from '../components/PostCard'
 
 const Feed = () => {
   const [feeds, setFeeds] = useState([])
@@ -16,10 +17,11 @@ const Feed = () => {
   }, [])
   return (!loading) ? (
     <div className='h-full overflow-y-scroll no-scrollbar py-10 xl:pr-5 flex items-start justify-center xl:gap-8'>
-      <div>
+      <div className='w-screen sm:w-[calc(100vw-240px)] lg:max-w-2xl'>
         <StoriesBar />
         <div className='p-4 space-y-6'>
-          List of posts
+        {feeds.map((post) =>
+        <PostCard post={post} key={post._id}/>)}
         </div>
       </div>
       <div>
