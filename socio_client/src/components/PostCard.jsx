@@ -58,7 +58,7 @@ const PostCard = ({ post }) => {
            <div className='flex items-center gap-1'>
             <Share2 className='h-4 w-4 cursor-pointer'/>
 
-            <span>{7}</span>
+            <span>{8}</span>
            </div>
       </div>
     </div>
