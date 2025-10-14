@@ -18,7 +18,7 @@ const RecentMessages = () => {
       <h3 className="font-semibold text-slate-800 mb-4">Recent Messages</h3>
       <div className="flex flex-col max-h-56 overflow-y-scroll no-scrollbar">
         {messages.map((message, index) => (
-          <Link
+          <Link to={`/messages/${message.from_user_id._id}`}
             key={index}
             className="flex items-start gap-2 py-2 hover:bg-slate-100"
           >
@@ -40,9 +40,7 @@ const RecentMessages = () => {
                 </p>
                 {!message.seen && (
                   <p
-                    className="bg-indigo-500
-text-white w-4 h-4 flex items-center justify-center
-rounded-full text-[10px]"
+                    className="bg-indigo-500 text-white w-4 h-4 flex items-center justify-center rounded-full text-[10px]"
                   >
                     1
                   </p>
