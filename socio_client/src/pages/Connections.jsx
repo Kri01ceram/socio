@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Users,
   UserPlus,
@@ -22,6 +22,7 @@ const Connections = () => {
     { label: "Pending", value: pendingConnections, icon: UserRoundPen },
     // {label: 'Messages', value: [], icon: MessageSquare}
   ];
+  const [currentTab, setCurrentTab] = useState("Followers");
   return (
     <div className="min-h-screen bg-slate-50">
       <div className="max-w-6x1 mx-auto p-6">
@@ -49,7 +50,24 @@ const Connections = () => {
         {/* Tabs */}
         <div className="inline-flex flex-wrap items-center border border-gray-200 rounded-md p-1 bg-white shadow-sm">
           {dataArray.map((tab) => (
-            <button>
+            <button
+              onClick={() => setCurrentTab(tab.label)}
+              key={tab.label}
+              className={`flex items-center px-3 py-1 text-sm rounded-md transition-colors ${
+                currentTab === tab.label
+                  ? "bg-white font-medium text-black"
+                  : "text-gray-500 hover:text-black"
+              }`}
+            >
+              <tab.icon className="w-4 h-4" />
+              <span className="ml-1">{tab.label}</span>
+              {tab.count !== undefined && (
+                <span
+                  className="ml-2 text-xs bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full"
+                >
+                  {tab.count}
+                </span>
+              )}
             </button>
           ))}
         </div>
