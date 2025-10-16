@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { dummyConnectionsData } from "../assets/assets";
 import { Search } from "lucide-react";
+import UserCard from "../components/UserCard";
 
 const Discover = () => {
   const [input, setInput] = useState("");
@@ -47,6 +48,15 @@ const Discover = () => {
             </div>
           </div>
         </div>
+        {/* Users List */}
+        <div className="flex flex-wrap gap-6">
+          {users.map((user) => (
+          <UserCard key={user._id} user={user} />
+        ))}
+        </div>
+        {
+          loading && (<Loading height="60vh" />)
+        }
       </div>
     </div>
   ); 
