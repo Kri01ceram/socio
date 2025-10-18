@@ -93,7 +93,7 @@ setPosts (dummyPostsData)
                         <img
                           src={image}
                           key={index}
-                          className="-64 aspect-video object-cover"
+                          className="w-64 aspect-video object-cover"
                           alt=""
                         />
                         <p
@@ -109,6 +109,7 @@ setPosts (dummyPostsData)
           )}
         </div>
       </div>
+      {showEdit && <p>Edit Profile Modal</p>}
     </div>
   ) : (
     <Loading />
