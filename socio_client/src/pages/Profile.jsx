@@ -4,11 +4,13 @@ import { useState } from 'react'
 // import { useParams } from 'react-router-dom'
 import { dummyPostsData, dummyUserData } from '../assets/assets'
 import Loading from '../components/Loading'
-import { Heart, MessageCircle, Share2 } from 'lucide-react'
+import { Heart, MessageCircle, Share2, User } from 'lucide-react'
+import { useParams } from 'react-router-dom'
+import UserProfileInfo from '../components/UserProfileInfo'
 
 
 const Profile = () => {
-  // const { profileId } = useParams()
+  const { profileId } = useParams()
   const [user, setUser] = useState(null)
 const [posts, setPosts] = useState([])
 const [activeTab, setActiveTab] = useState('posts')
@@ -35,7 +37,8 @@ setPosts (dummyPostsData)
               />
             )}
           </div>
-          {/* User Info }*/}
+          {/* User Info */}
+          <UserProfileInfo user={user} posts={posts} profileId={profileId} setShowEdit={setShowEdit}/>
         </div>
       </div>
     </div>
