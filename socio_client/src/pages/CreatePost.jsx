@@ -19,7 +19,7 @@ const handleSubmit = async () => {
   }
 }
   return (
-    <div className="min-h-screen bg-muted">
+  <div className="min-h-screen bg-app">
       <div className="max-w-6xl mx-auto p-6">
         {/* Title */}
         <div className="mb-8">
@@ -29,7 +29,7 @@ const handleSubmit = async () => {
           <p className="text-slate-600">Share your thoughts with the world</p>
         </div>
         {/* Form */}
-        <div className="max-w-xl bg-white p-4 sm:p-8 sm:pb-3 rounded-xl shadow-md space-y-4">
+  <div className="max-w-xl card p-4 sm:p-8 sm:pb-3 space-y-4">
           {/* Header */}
           <div className="flex items-center gap-3">
             {" "}

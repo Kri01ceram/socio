@@ -27,10 +27,10 @@ setPosts (dummyPostsData)
   fetchUser()
   }, [])
   return user ? (
-    <div className="relative h-full overflow-y-scroll bg-gray-50 p-6">
+    <div className="relative h-full overflow-y-scroll bg-app p-6">
       <div className="max-w-3xl mx-auto">
         {/* Profile Card */}
-        <div className="bg-white rounded-2xl shadow overflow-hidden">
+        <div className="card rounded-2xl overflow-hidden">
           {/* Cover Photo */}
           <div className="h-40 md:h-56 bg-muted">
             {user.cover_photo && (
@@ -51,7 +51,7 @@ setPosts (dummyPostsData)
         </div>
         {/* Tabs */}
         <div className="mt-6">
-          <div className="bg-white rounded-xl shadow p-1 flex max-w-md mx-auto">
+          <div className="card p-1 flex max-w-md mx-auto rounded-xl">
             {["posts", "media", "likes"].map((tab) => (
               <button
                 onClick={() => {

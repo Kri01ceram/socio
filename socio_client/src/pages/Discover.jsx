@@ -20,7 +20,7 @@ const Discover = () => {
     }
   };
   return (
-    <div className="min-h-screen bg-muted">
+    <div className="min-h-screen bg-app">
       <div className="max-w-6xl mx-auto p-6">
         {/* Title */}
         <div className="mb-8">
@@ -32,7 +32,7 @@ const Discover = () => {
           </p>
         </div>
         {/* Search */}
-        <div className="mb-8 shadow-md rounded-md border border-slate-200/60 bg-white/80">
+        <div className="mb-8 card">
           <div className="p-6">
             <div className="relative">
               <Search

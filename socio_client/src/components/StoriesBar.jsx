@@ -21,7 +21,7 @@ const StoriesBar = () => {
   return (
     <div className="w-screen sm:w-[calc(100vw-240px)] lg:max-w-2xl no-scrollbar overflow-x-auto px-4">
     <div className="flex gap-4 pb-5">
-  <div onClick={() => setShowModal(true)} className="rounded-lg shadow-sm min-w-30 max-w-30 max-h-40 aspect-[3/4] cursor-pointer hover:shadow-md transition-all duration-200 border-2 border-dashed border-gray-300 bg-muted">
+          <div onClick={() => setShowModal(true)} className="rounded-lg shadow-sm min-w-30 max-w-30 max-h-40 aspect-[3/4] cursor-pointer hover:shadow-md transition-all duration-200 border-2 border-dashed border-subtle bg-muted">
           <div className="h-full flex flex-col items-center justify-center p-4">
             <div className="size-10 bg-accent rounded-full flex items-center justify-center mb-3">
               <Plus className="h-5 w-5 text-white" />
@@ -34,7 +34,7 @@ const StoriesBar = () => {
         {stories.map((story, index) => (
           <div onClick={() => setViewStory(story)}
             key={index}
-            className={`relative rounded-lg shadow-sm min-w-30 max-w-30 max-h-40 cursor-pointer hover:shadow-md transition-all duration-200 bg-white border border-gray-200`}
+            className={`relative rounded-lg shadow-sm min-w-30 max-w-30 max-h-40 cursor-pointer hover:shadow-md transition-all duration-200 bg-surface border border-subtle`}
           >
             <img
               src={story.user.profile_picture}

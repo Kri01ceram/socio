@@ -1,14 +1,13 @@
 import React from 'react'
 import { Verified } from 'lucide-react'
 import { PenBox } from 'lucide-react'
-import { useState } from 'react'
 import { MapPin, Calendar } from 'lucide-react'
 import moment from 'moment'
 
 
 const UserProfileInfo = ({user, posts, profileId, setShowEdit}) => {
 return (
-  <div className="relative py-4 px-6 md:px-8 bg-white">
+  <div className="relative py-4 px-6 md:px-8 bg-surface">
     <div className="flex flex-col md:flex-row items-start gap-6">
       <div className="w-32 h-32 border-4 border-white shadow-lg absolute -top-16 left-6 md:left-8 rounded-full overflow-hidden">
         <img

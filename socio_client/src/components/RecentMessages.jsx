@@ -14,13 +14,13 @@ const RecentMessages = () => {
     fetchMessages();
   }, []);
   return (
-    <div className="bg-white max-w-xs mt-4 p-4 min-h-20 rounded-md shadow text-xs text-slate-800">
+    <div className="card max-w-xs mt-4 p-4 min-h-20 text-xs text-slate-800">
       <h3 className="font-semibold text-slate-800 mb-4">Recent Messages</h3>
       <div className="flex flex-col max-h-56 overflow-y-scroll no-scrollbar">
         {messages.map((message, index) => (
           <Link to={`/messages/${message.from_user_id._id}`}
             key={index}
-            className="flex items-start gap-2 py-2 hover:bg-slate-100"
+            className="flex items-start gap-2 py-2 hover:bg-muted"
           >
             <img
               src={message.from_user_id.profile_picture}
