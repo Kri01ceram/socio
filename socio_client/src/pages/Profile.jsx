@@ -32,7 +32,7 @@ setPosts (dummyPostsData)
         {/* Profile Card */}
         <div className="bg-white rounded-2xl shadow overflow-hidden">
           {/* Cover Photo */}
-          <div className="h-40 md:h-56 bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200">
+          <div className="h-40 md:h-56 bg-muted">
             {user.cover_photo && (
               <img
                 src={user.cover_photo}
@@ -60,7 +60,7 @@ setPosts (dummyPostsData)
                 key={tab}
                 className={`flex-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
                   activeTab === tab
-                    ? "bg-indigo-600 text-white"
+                    ? "bg-accent text-white"
                     : "text-gray-600 hover:text-gray-900"
                 }`}
               >

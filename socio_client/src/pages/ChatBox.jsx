@@ -8,7 +8,7 @@ const ChatBox = () => {
   const messages = dummyMessagesData
   const [text, setText] = useState('')
   const [image, setImage] = useState(null)
-  const [user, setUser] = useState(dummyUserData)
+  const [user] = useState(dummyUserData)
   const messagesEndRef = useRef(null)
 
  const sendMessage = async () => {
@@ -21,7 +21,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
   return (
     user && (
       <div className="flex flex-col h-screen">
-        <div className="flex items-center gap-2 p-2 md:px-10 xl:p1-42 bg-gradient-to-r from-indigo-50 to-purple-50 border-b border-gray-300">
+        <div className="flex items-center gap-2 p-2 md:px-10 xl:px-12 bg-muted border-b border-gray-300">
           <img
             src={user.profile_picture}
             alt=""
@@ -46,7 +46,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
                   }`}
                 >
                   <div
-                    className={`p-2 text-sm max-w-sm bg-white text-slate-700 rounded-lg shadow ${
+                    className={`p-2 text-sm max-w-sm bg-white text-slate-700 rounded-lg shadow-sm ${
                       message.to_user_id !== user._id
                         ? "rounded-bl-none"
                         : "rounded-br-none"
@@ -55,7 +55,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
                     {message.message_type === "image" && (
                       <img
                         src={message.media_url}
-                        className="w-full max-w-sm rounded-lg mb-l"
+                        className="w-full max-w-sm rounded-lg mb-2"
                         alt=""
                       />
                     )}
@@ -67,7 +67,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
           </div>
         </div>
         <div className="px-4">
-          <div className="flex items-center gap-3 p-1-5 p-1.5 bg-white w-full max-w-xl mx-auto border border-gray-200 shadow rounded-full mb-5">
+          <div className="flex items-center gap-3 p-1.5 bg-white w-full max-w-xl mx-auto border border-gray-200 shadow-sm rounded-lg mb-5">
             <input
               type="text"
               className="flex-1 outline-none text-slate-700"
@@ -95,8 +95,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
                 onChange={(e) => setImage(e.target.files[0])}
               />
             </label>
-            <button onClick={sendMessage} className='bg-gradient-to-br
-from-indigo-500 to-purple-600 hover:from-indigo-700 hover:to-purple-800 active:scale-95 cursor-pointer text-white p-2 rounded-full'>
+            <button onClick={sendMessage} className='btn-primary active:scale-95 cursor-pointer text-white p-2 rounded-md'>
   <SendHorizontal size={18} />
 </button>
           </div>

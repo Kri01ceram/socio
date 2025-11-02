@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ArrowLeft, TextIcon, Upload, Sparkle } from "lucide-react";
 import toast from "react-hot-toast";
 
-const StorieModel = ({ setShowModal, fetchStories }) => {
+const StorieModel = ({ setShowModal }) => {
   const bgcolors = [
     "#f87171",
     "#fb923c",
@@ -106,11 +106,15 @@ const StorieModel = ({ setShowModal, fetchStories }) => {
             <Upload size={18} /> Media
           </label>
         </div>
-        <button onClick={()=> toast.promise(handleCreateStory(), {
-          loading: 'Creating story...',
-          success: 'Story created!',
-          error: 'Error creating story.'
-        })} className="flex items-center justify-center gap-2 text-white py-3 mt-4 w-full rounded bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 active:scale-95 transition cursor-pointer"
+        <button
+          onClick={() =>
+            toast.promise(handleCreateStory(), {
+              loading: "Creating story...",
+              success: "Story created!",
+              error: "Error creating story.",
+            })
+          }
+          className="flex items-center justify-center gap-2 text-white py-3 mt-4 w-full rounded btn-primary hover:opacity-95 active:scale-95 transition cursor-pointer"
         >
           <Sparkle size={18} /> Create Story
         </button>

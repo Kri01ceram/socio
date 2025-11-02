@@ -23,8 +23,8 @@ const AsliLogin = () => {
                       <p>Used by 12k+ developers</p>
                     </div>
                   </div>
-                  <h1 className='text-3xl md:text-6xl md:pb-2 font-bold bg-gradient-to-r from-gray-950 to-gray-800 bg-clip-text text-transparent'>More than just friends truly connect</h1>
-                  <p className='text-xl md:text-3xl text-gray-900 max-w-72 md:max-w-md'>Connect with global community on Socio</p>
+                  <h1 className='text-3xl md:text-5xl md:pb-2 font-semibold text-gray-900'>More than just friends, truly connect</h1>
+                  <p className='text-lg md:text-2xl text-gray-700 max-w-72 md:max-w-md'>Connect with a global community on Socio</p>
                 </div>
                 <span className='md:h-10'></span>
            </div>

@@ -85,7 +85,7 @@ const ProfileModal = ({setShowEdit}) => {
                         : user.cover_photo
                     }
                     alt=""
-                    className="w-80 h-40 rounded-lg bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 object-cover mt-2"
+                    className="w-80 h-40 rounded-lg bg-muted object-cover mt-2"
                   />
                   <div className="absolute hidden group-hover/cover:flex top-0 left-0 right-0 bottom-0 bg-black/20 rounded-lg items-center justify-center">
                     <Pencil className="w-5 h-5 text-white" />
@@ -151,7 +151,7 @@ const ProfileModal = ({setShowEdit}) => {
             </div>
             <div className='flex justify-end space-x-3 pt-6'>
 <button onClick={()=>{setShowEdit(false)} } type='button' className='px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors'>Cancel</button>
-<button type='submit' className='px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg hover:from-indigo-600 hover:to-purple-700 transition cursor-pointer'>Save Changes</button>
+<button type='submit' className='px-4 py-2 btn-primary text-white rounded-lg hover:opacity-95 transition cursor-pointer'>Save Changes</button>
 </div>
           </form>
         </div>

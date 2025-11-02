@@ -20,10 +20,10 @@ const StoriesBar = () => {
   }, []);
   return (
     <div className="w-screen sm:w-[calc(100vw-240px)] lg:max-w-2xl no-scrollbar overflow-x-auto px-4">
-      <div className="flex gap-4 pb-5">
-        <div onClick={() => setShowModal(true)} className="rounded-1g shadow-sm min-w-30 max-w-30 max-h-40 aspect-[3/4] cursor-pointer hover:shadow-1g transition-all duration-200 border-2 border-dashed border-indigo-300 bg-gradient-to-b from-indigo-50 to-white">
+    <div className="flex gap-4 pb-5">
+  <div onClick={() => setShowModal(true)} className="rounded-lg shadow-sm min-w-30 max-w-30 max-h-40 aspect-[3/4] cursor-pointer hover:shadow-md transition-all duration-200 border-2 border-dashed border-gray-300 bg-muted">
           <div className="h-full flex flex-col items-center justify-center p-4">
-            <div className="size-10 bg-indigo-500 rounded-full flex items-center justify-center mb-3">
+            <div className="size-10 bg-accent rounded-full flex items-center justify-center mb-3">
               <Plus className="h-5 w-5 text-white" />
             </div>
             <p className="text-sm font-medium text-gray-700 text-center">
@@ -34,7 +34,7 @@ const StoriesBar = () => {
         {stories.map((story, index) => (
           <div onClick={() => setViewStory(story)}
             key={index}
-            className={`relative rounded-1g shadow min-w-30 max-w-30 max-h-40 cursor-pointer hover:shadow-lg transition-all duration-200 bg-gradient-to-b from-indigo-500 to-purple-600 hover:from-indigo-700 hover: to-purple-800 active:scale-95`}
+            className={`relative rounded-lg shadow-sm min-w-30 max-w-30 max-h-40 cursor-pointer hover:shadow-md transition-all duration-200 bg-white border border-gray-200`}
           >
             <img
               src={story.user.profile_picture}
@@ -48,7 +48,7 @@ const StoriesBar = () => {
               {moment(story.createdAt).fromNow()}
             </p>
             {story.media_type !== "text" && (
-              <div className="absolute inset-0 bg-black z-1 rounded-1g overflow-hidden">
+              <div className="absolute inset-0 bg-black z-1 rounded-lg overflow-hidden">
                 {story.media_type === "image" ? (
                   <img
                     src={story.media_url}

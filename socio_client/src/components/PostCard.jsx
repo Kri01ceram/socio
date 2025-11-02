@@ -6,11 +6,15 @@ import { useNavigate } from 'react-router-dom';
 
 const PostCard = ({ post }) => {
   const content = typeof post?.content === 'string' ? post.content : '';
-  const postwithhashtag = content.replace(/#(\w+)/g, '<span class="text-indigo-600 cursor-pointer">#$1</span>');
+  const postwithhashtag = content.replace(/#(\w+)/g, '<span class="text-accent cursor-pointer">#$1</span>');
   const [likes, setLikes] = React.useState(Array.isArray(post?.likes) ? post.likes : []);
   const currentuser = dummyUserData;
   const handleLike = async () => {
-
+    setLikes((prev) => {
+      if (!currentuser?._id) return prev;
+      const hasLiked = prev.includes(currentuser._id);
+      return hasLiked ? prev.filter((id) => id !== currentuser._id) : [...prev, currentuser._id];
+    });
   }
   const navigate = useNavigate();
   return (
@@ -48,7 +52,7 @@ const PostCard = ({ post }) => {
       <div className='flex items-center gap-4 text-gray-600 text-sm pt-2 border-t border-gray-300'>
       {/* Actions: Like, Comment, Share */}
            <div className='flex items-center gap-1'>
-            <Heart className={`h-4 w-4 cursor-pointer ${likes.includes(currentuser._id) ? 'text-indigo-600 fill-red-500' : '' }`} onClick={handleLike}/>
+            <Heart className={`h-4 w-4 cursor-pointer ${likes.includes(currentuser._id) ? 'text-accent fill-accent' : '' }`} onClick={handleLike}/>
 
             <span>{likes.length}</span>
            </div>

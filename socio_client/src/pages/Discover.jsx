@@ -3,6 +3,7 @@ import { useState } from "react";
 import { dummyConnectionsData } from "../assets/assets";
 import { Search } from "lucide-react";
 import UserCard from "../components/UserCard";
+import Loading from "../components/Loading";
 
 const Discover = () => {
   const [input, setInput] = useState("");
@@ -19,8 +20,8 @@ const Discover = () => {
     }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      <div className="max-w-6x1 mx-auto p-6">
+    <div className="min-h-screen bg-muted">
+      <div className="max-w-6xl mx-auto p-6">
         {/* Title */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-slate-900 mb-2">

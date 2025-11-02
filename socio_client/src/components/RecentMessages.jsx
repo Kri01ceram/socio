@@ -40,7 +40,7 @@ const RecentMessages = () => {
                 </p>
                 {!message.seen && (
                   <p
-                    className="bg-indigo-500 text-white w-4 h-4 flex items-center justify-center rounded-full text-[10px]"
+                    className="bg-accent text-white w-4 h-4 flex items-center justify-center rounded-full text-[10px]"
                   >
                     1
                   </p>
