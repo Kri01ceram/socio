@@ -12,16 +12,16 @@
 /* Theme variables (4-color palette) */
 :root{
   /* Provided palette */
-  --color-primary: #80A1BA;  /* brand/darkest */
-  --color-accent:  #91C4C3;  /* accent */
-  --color-accent-2:#B4DEBD;  /* secondary accent */
-  --bg-app:        #FFF7DD;  /* app background */
+  --color-primary: #222831;  /* brand/darkest */
+  --color-accent:  #00ADB5;  /* accent */
+  --color-accent-2:#393E46;  /* secondary accent */
+  --bg-app:        #EEEEEE;  /* app background */
 
   /* Derived roles constrained to palette */
-  --surface:       #FFF7DD;  /* cards match app bg; separated by border */
-  --surface-muted: #B4DEBD;  /* muted containers */
-  --border-subtle: #B4DEBD;  /* subtle borders */
-  --text-default:  #80A1BA;  /* main text */
+  --surface:       #EEEEEE;  /* cards match app bg; separated by border */
+  --surface-muted: #EEEEEE;  /* keep muted light for contrast */
+  --border-subtle: #393E46;  /* subtle borders */
+  --text-default:  #222831;  /* main text */
 }
 
 /* Semantic utilities (kept small to avoid fighting Tailwind) */
@@ -43,10 +43,10 @@
 .ring-accent{--tw-ring-color:var(--color-accent)!important}
 .gradient-primary{background:linear-gradient(90deg,var(--color-accent),var(--color-accent-2))!important}
 
-/* Opacity variants of primary using RGBA derived from #80A1BA */
-.bg-primary-90{background-color:rgba(128,161,186,0.9)!important}
-.bg-primary-50{background-color:rgba(128,161,186,0.5)!important}
-.bg-primary-20{background-color:rgba(128,161,186,0.2)!important}
+/* Opacity variants of primary using RGBA derived from #222831 */
+.bg-primary-90{background-color:rgba(34,40,49,0.9)!important}
+.bg-primary-50{background-color:rgba(34,40,49,0.5)!important}
+.bg-primary-20{background-color:rgba(34,40,49,0.2)!important}
 
 /* Buttons */
 .btn-primary{background:var(--color-accent);color:var(--bg-app)}
