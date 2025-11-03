@@ -19,7 +19,7 @@ const StoriesBar = () => {
     fetchStories();
   }, []);
   return (
-    <div className="w-screen sm:w-[calc(100vw-240px)] lg:max-w-2xl no-scrollbar overflow-x-auto px-4">
+    <div className="w-full no-scrollbar overflow-x-auto px-4">
     <div className="flex gap-4 pb-5">
           <div onClick={() => setShowModal(true)} className="rounded-lg shadow-sm min-w-30 max-w-30 max-h-40 aspect-[3/4] cursor-pointer hover:shadow-md transition-all duration-200 border-2 border-dashed border-subtle bg-muted">
           <div className="h-full flex flex-col items-center justify-center p-4">
