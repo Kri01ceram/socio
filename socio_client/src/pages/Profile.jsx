@@ -60,8 +60,8 @@ setPosts (dummyPostsData)
                 key={tab}
                 className={`flex-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
                   activeTab === tab
-                    ? "bg-accent text-white"
-                    : "text-gray-600 hover:text-gray-900"
+                    ? "bg-accent text-app"
+                    : "text-default/70 hover:text-default"
                 }`}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -98,7 +98,7 @@ setPosts (dummyPostsData)
                           alt=""
                         />
                         <p
-                          className="absolute bottom-0 right-0 text-xs p-1 px-3 backdrop-blur-xl text-white opacity-0 group-hover:opacity-100 transition duration-300"
+                          className="absolute bottom-0 right-0 text-xs p-1 px-3 backdrop-blur-xl text-app opacity-0 group-hover:opacity-100 transition duration-300"
                         >
                           Posted {moment(post.createdAt).fromNow()}
                         </p>

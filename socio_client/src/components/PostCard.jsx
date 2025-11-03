@@ -25,15 +25,15 @@ const PostCard = ({ post }) => {
         <div>
           <div className='flex items-center space-x-1'>
             <span>{post.user?.full_name || 'User'}</span>
-            <BadgeCheck className='w-4 h-4 text-blue-400'/>
+            <BadgeCheck className='w-4 h-4 text-accent'/>
           </div>
-          <div className='text-gray-500 text-sm'>@{post.user?.username || 'username'} - {moment(post.createdAt).fromNow()}</div>
+          <div className='text-muted text-sm'>@{post.user?.username || 'username'} - {moment(post.createdAt).fromNow()}</div>
         </div>
       </div>
       {/* Post Content */}
       {post.content && (
         <div
-          className='text-gray-800 text-sm whitespace-pre-line break-words overflow-hidden'
+          className='text-default text-sm whitespace-pre-line break-words overflow-hidden'
           dangerouslySetInnerHTML={{ __html: postwithhashtag }}
         />
       )}
@@ -49,7 +49,7 @@ const PostCard = ({ post }) => {
           ))}
         </div>
       )}
-      <div className='flex items-center gap-4 text-gray-600 text-sm pt-2 border-t border-gray-300'>
+  <div className='flex items-center gap-4 text-default/80 text-sm pt-2 border-t border-subtle'>
       {/* Actions: Like, Comment, Share */}
            <div className='flex items-center gap-1'>
             <Heart className={`h-4 w-4 cursor-pointer ${likes.includes(currentuser._id) ? 'text-accent fill-accent' : '' }`} onClick={handleLike}/>

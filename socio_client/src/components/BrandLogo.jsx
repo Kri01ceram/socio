@@ -9,7 +9,7 @@ const BrandLogo = ({ className = '', onClick }) => {
       aria-label="Socio home"
       className={`inline-block transition-transform hover:scale-[1.01] active:scale-[0.99] ${className}`}
     >
-      <span className="text-3xl md:text-4xl font-extrabold tracking-tight font-brand text-gray-900 select-none leading-none">
+  <span className="text-3xl md:text-4xl font-extrabold tracking-tight font-brand text-default select-none leading-none">
         socio
       </span>
     </Link>

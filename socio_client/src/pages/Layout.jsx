@@ -16,9 +16,9 @@ const Layout = () => {
         <Outlet />
       </div>
       {sidebarOpen ? (
-        <X className='absolute top-3 right-3 p-2 z-100 bg-surface rounded-md shadow w-10 h-10 text-gray-600 sm:hidden' onClick={() => setSidebarOpen(false)} />
+  <X className='absolute top-3 right-3 p-2 z-100 bg-surface rounded-md shadow w-10 h-10 text-default/70 sm:hidden' onClick={() => setSidebarOpen(false)} />
       ) : (
-        <Menu className='absolute top-3 right-3 p-2 z-100 bg-surface rounded-md shadow w-10 h-10 text-gray-600 sm:hidden' onClick={() => setSidebarOpen(true)} />
+  <Menu className='absolute top-3 right-3 p-2 z-100 bg-surface rounded-md shadow w-10 h-10 text-default/70 sm:hidden' onClick={() => setSidebarOpen(true)} />
       )}
     </div>
   ) : (

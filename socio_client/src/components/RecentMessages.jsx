@@ -14,8 +14,8 @@ const RecentMessages = () => {
     fetchMessages();
   }, []);
   return (
-    <div className="card max-w-xs mt-4 p-4 min-h-20 text-xs text-slate-800">
-      <h3 className="font-semibold text-slate-800 mb-4">Recent Messages</h3>
+  <div className="card max-w-xs mt-4 p-4 min-h-20 text-xs text-default">
+  <h3 className="font-semibold text-default mb-4">Recent Messages</h3>
       <div className="flex flex-col max-h-56 overflow-y-scroll no-scrollbar">
         {messages.map((message, index) => (
           <Link to={`/messages/${message.from_user_id._id}`}
@@ -30,17 +30,17 @@ const RecentMessages = () => {
             <div className="w-full">
               <div className="flex justify-between ">
                 <p className="font-medium">{message.from_user_id.full_name}</p>
-                <p className="text-[10px] text-slate-400">
+                <p className="text-[10px] text-default/60">
                   {moment(message.createdAt).fromNow()}
                 </p>
               </div>
               <div className="flex justify-between ">
-                <p className="text-gray-500">
+                <p className="text-default/80">
                   {message.text ? message.text : "Media"}
                 </p>
                 {!message.seen && (
                   <p
-                    className="bg-accent text-white w-4 h-4 flex items-center justify-center rounded-full text-[10px]"
+                    className="bg-accent text-app w-4 h-4 flex items-center justify-center rounded-full text-[10px]"
                   >
                     1
                   </p>

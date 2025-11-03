@@ -21,7 +21,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
   return (
     user && (
       <div className="flex flex-col h-screen">
-        <div className="flex items-center gap-2 p-2 md:px-10 xl:px-12 bg-muted border-b border-gray-300">
+  <div className="flex items-center gap-2 p-2 md:px-10 xl:px-12 bg-muted border-b border-subtle">
           <img
             src={user.profile_picture}
             alt=""
@@ -29,7 +29,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
           />
           <div>
             <p className="font-medium">{user.full_name}</p>
-            <p className="text-sm text-gray-500 -mt-1.5">@{user.username}</p>
+            <p className="text-sm text-default/70 -mt-1.5">@{user.username}</p>
           </div>
         </div>
         <div className="p-5 md:px-10 h-full overflow-y-scroll">
@@ -46,7 +46,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
                   }`}
                 >
                   <div
-                    className={`p-2 text-sm max-w-sm bg-surface text-slate-700 rounded-lg shadow-sm ${
+                    className={`p-2 text-sm max-w-sm bg-surface text-default rounded-lg shadow-sm ${
                       message.to_user_id !== user._id
                         ? "rounded-bl-none"
                         : "rounded-br-none"
@@ -70,7 +70,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
           <div className="flex items-center gap-3 p-1.5 bg-surface w-full max-w-xl mx-auto border border-subtle shadow-sm rounded-lg mb-5">
             <input
               type="text"
-              className="flex-1 outline-none text-slate-700"
+              className="flex-1 outline-none text-default"
               placeholder="Type a message..."
               onKeyDown={(e) => e.key === "Enter" && sendMessage()}
               onChange={(e) => setText(e.target.value)}
@@ -84,7 +84,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
                   className="h-8 rounded"
                 />
               ) : (
-                <ImageIcon className="size-7 text-gray-400 cursor-pointer" />
+                <ImageIcon className="size-7 text-default/60 cursor-pointer" />
               )}
 
               <input
@@ -95,7 +95,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
                 onChange={(e) => setImage(e.target.files[0])}
               />
             </label>
-            <button onClick={sendMessage} className='btn-primary active:scale-95 cursor-pointer text-white p-2 rounded-md'>
+            <button onClick={sendMessage} className='btn-primary active:scale-95 cursor-pointer text-app p-2 rounded-md'>
   <SendHorizontal size={18} />
 </button>
           </div>

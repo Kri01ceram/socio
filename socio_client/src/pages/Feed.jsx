@@ -28,10 +28,10 @@ const Feed = () => {
       </div>
       <div className='max-xl:hidden sticky top-0'>
         <div className='max-w-xs card text-xs p-4 inline-flex flex-col gap-2'>
-          <h3 className='text-slate-800 font-semibold'>sponsored</h3>
+          <h3 className='text-default font-semibold'>sponsored</h3>
           <img src={assets.sponsored_img} className='w-75 h-50 rounded-md' alt="" />
-          <p className='text-slate-600'>Email marketing</p>
-          <p className='text-slate-400'>Supercharge your marketing with a powerful, easy to use email marketing platform.</p>
+          <p className='text-default/80'>Email marketing</p>
+          <p className='text-default/60'>Supercharge your marketing with a powerful, easy to use email marketing platform.</p>
           </div>
           <RecentMessages />
       </div>

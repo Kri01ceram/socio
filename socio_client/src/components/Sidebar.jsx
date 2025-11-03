@@ -23,7 +23,7 @@ duration-300 ease-in-out`}
   <BrandLogo className="ml-7 my-3" />
         <hr className="border-subtle mb-8" />
         <MenuItems setSidebarOpen={setSidebarOpen} />
-        <Link to='/create-post' className='flex items-center justify-center gap-2 py-2.5 mt-6 mx-6 rounded-lg btn-primary hover:opacity-95 transition text-white cursor-pointer'>
+          <Link to='/create-post' className='flex items-center justify-center gap-2 py-2.5 mt-6 mx-6 rounded-lg btn-primary hover:opacity-95 transition text-app cursor-pointer'>
           <CirclePlus className="w-5 h-5"/>
           Create Post
         </Link>
@@ -36,10 +36,10 @@ duration-300 ease-in-out`}
           <h1 className="text-sm font-medium">
             {user.full_name}
           </h1>
-          <p className="text-xs text-gray-500">@{user.username}</p>
+            <p className="text-xs text-default/70">@{user.username}</p>
         </div>
        </div>
-       <LogOut className="w-4.5 text-gray-600 hover:text-gray-900 transition cursor-pointer" onClick={signOut}/>
+        <LogOut className="w-4.5 text-default/70 hover:text-default transition cursor-pointer" onClick={signOut}/>
       </div>
     </div>
   );

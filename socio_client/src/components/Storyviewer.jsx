@@ -37,7 +37,7 @@ const Storyviewer = ({ viewStory, setViewStory }) => {
     switch (viewStory.media_type) {
       case "text":
         return (
-          <div className="max-w-full max-h-full p-8 text-white text-2xl sm:text-4xl font-medium flex items-center justify-center text-center">
+          <div className="max-w-full max-h-full p-8 text-app text-2xl sm:text-4xl font-medium flex items-center justify-center text-center">
             {viewStory.content}
           </div>
         );
@@ -69,7 +69,7 @@ const Storyviewer = ({ viewStory, setViewStory }) => {
 
   return (
     <div
-      className="fixed inset-0 h-screen bg-black bg-opacity-90 z-110 flex items-center justify-center"
+      className="fixed inset-0 h-screen bg-primary-90 z-110 flex items-center justify-center"
       style={{
         backgroundColor:
           viewStory.media_type === "text"
@@ -86,13 +86,13 @@ const Storyviewer = ({ viewStory, setViewStory }) => {
       </div>
 
       {/* User Info Top Left */}
-      <div className="absolute top-4 left-4 flex items-center space-x-3 p-2 px-4 sm:p-4 sm:px-8 backdrop-blur rounded bg-black/50">
+  <div className="absolute top-4 left-4 flex items-center space-x-3 p-2 px-4 sm:p-4 sm:px-8 backdrop-blur rounded bg-primary-20">
         <img
           src={viewStory.user?.profile_picture}
           alt=""
-          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border border-white"
+          className="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border border-app"
         />
-        <div className="text-white font-medium flex items-center gap-1.5">
+        <div className="text-app font-medium flex items-center gap-1.5">
           <span>{viewStory.user?.full_name}</span>
           <BadgeCheck size={18} />
         </div>
@@ -101,7 +101,7 @@ const Storyviewer = ({ viewStory, setViewStory }) => {
       {/* Close Button */}
       <button
         onClick={handleClose}
-        className="absolute top-4 right-4 text-white text-3xl font-bold focus:outline-none"
+        className="absolute top-4 right-4 text-app text-3xl font-bold focus:outline-none"
       >
         <X className="w-8 h-8 hover:scale-110 transition cursor-pointer" />
       </button>

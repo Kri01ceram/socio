@@ -18,13 +18,13 @@ const AsliLogin = () => {
                     <img src={assets.group_users} alt="" className='h-8 md:h-10' />
                     <div>
                       <div className='flex'>
-                        {Array(5).fill(0).map((_, i) => (<Star key={i} className='size-4 md:size-4.5 text-transparent fill-amber-500'/>))}
+                        {Array(5).fill(0).map((_, i) => (<Star key={i} className='size-4 md:size-4.5 text-transparent fill-accent-2'/>))}
                       </div>
                       <p>Used by 12k+ developers</p>
                     </div>
                   </div>
-                  <h1 className='text-3xl md:text-5xl md:pb-2 font-semibold text-gray-900'>More than just friends, truly connect</h1>
-                  <p className='text-lg md:text-2xl text-gray-700 max-w-72 md:max-w-md'>Connect with a global community on Socio</p>
+                  <h1 className='text-3xl md:text-5xl md:pb-2 font-semibold text-default'>More than just friends, truly connect</h1>
+                  <p className='text-lg md:text-2xl text-default/80 max-w-72 md:max-w-md'>Connect with a global community on Socio</p>
                 </div>
                 <span className='md:h-10'></span>
            </div>

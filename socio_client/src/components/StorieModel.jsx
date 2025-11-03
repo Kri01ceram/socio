@@ -4,13 +4,10 @@ import toast from "react-hot-toast";
 
 const StorieModel = ({ setShowModal }) => {
   const bgcolors = [
-    "#f87171",
-    "#fb923c",
-    "#fbbf24",
-    "#34d399",
-    "#60a5fa",
-    "#a78bfa",
-    "#f472b6",
+    "#80A1BA",
+    "#91C4C3",
+    "#B4DEBD",
+    "#FFF7DD",
   ];
   const [mode, setMode] = useState("text");
   const [background, setBackground] = useState(bgcolors[0]);
@@ -30,12 +27,12 @@ const StorieModel = ({ setShowModal }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-110 min-h-screen bg-black/80 backdrop-blur text-white flex items-center justify-center p-4">
+  <div className="fixed inset-0 z-110 min-h-screen bg-primary-90 backdrop-blur text-app flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-4 flex items-center justify-between">
           <button
             onClick={() => setShowModal(false)}
-            className="text-white p-2 cursor-pointer"
+            className="text-app p-2 cursor-pointer"
           >
             <ArrowLeft />
           </button>
@@ -48,7 +45,7 @@ const StorieModel = ({ setShowModal }) => {
         >
           {mode === "text" && (
             <textarea
-              className="bg-transparent text-white w-full h-full p-6 text-lg resize-none focus:outline-none"
+              className="bg-transparent text-app w-full h-full p-6 text-lg resize-none focus:outline-none"
               placeholder="What's on your mind?"
               onChange={(e) => setText(e.target.value)}
               value={text}
@@ -84,14 +81,14 @@ const StorieModel = ({ setShowModal }) => {
               setPreviewUrl(null);
             }}
             className={`flex-1 flex items-center justify-center gap-2 p-2 rounded ${
-              mode === "text" ? "bg-surface text-default" : "bg-zinc-800 text-white"
+              mode === "text" ? "bg-surface text-default" : "bg-muted text-default"
             }`}
           >
             <TextIcon size={18} /> Text
           </button>
           <label
             className={`flex-1 flex items-center justify-center gap-2 p-2 rounded cursor-pointer ${
-              mode === "media" ? "bg-surface text-default" : "bg-zinc-800 text-white"
+              mode === "media" ? "bg-surface text-default" : "bg-muted text-default"
             }`}
           >
             <input
@@ -114,7 +111,7 @@ const StorieModel = ({ setShowModal }) => {
               error: "Error creating story.",
             })
           }
-          className="flex items-center justify-center gap-2 text-white py-3 mt-4 w-full rounded btn-primary hover:opacity-95 active:scale-95 transition cursor-pointer"
+          className="flex items-center justify-center gap-2 text-app py-3 mt-4 w-full rounded btn-primary hover:opacity-95 active:scale-95 transition cursor-pointer"
         >
           <Sparkle size={18} /> Create Story
         </button>

@@ -9,22 +9,19 @@
   font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 
-/* Theme variables (refined palette) */
+/* Theme variables (4-color palette) */
 :root{
-  /* brand + accents */
-  --color-primary: #0f172a;   /* slate-900 */
-  --color-accent:  #2563eb;   /* blue-600 */
-  --color-accent-2:#10b981;   /* emerald-500 */
+  /* Provided palette */
+  --color-primary: #80A1BA;  /* brand/darkest */
+  --color-accent:  #91C4C3;  /* accent */
+  --color-accent-2:#B4DEBD;  /* secondary accent */
+  --bg-app:        #FFF7DD;  /* app background */
 
-  /* surfaces */
-  --bg-app:       #f5f7fb;    /* cool, not pure white */
-  --surface:      #fcfdff;    /* soft card surface */
-  --surface-muted:#f8fafc;    /* muted containers */
-  --border-subtle:#e5e7eb;    /* gray-200 */
-
-  /* text */
-  --text-default: #0f172a;    /* slate-900 */
-  --text-muted:   #6b7280;    /* gray-500 */
+  /* Derived roles constrained to palette */
+  --surface:       #FFF7DD;  /* cards match app bg; separated by border */
+  --surface-muted: #B4DEBD;  /* muted containers */
+  --border-subtle: #B4DEBD;  /* subtle borders */
+  --text-default:  #80A1BA;  /* main text */
 }
 
 /* Semantic utilities (kept small to avoid fighting Tailwind) */
@@ -33,18 +30,26 @@
 .bg-accent{background-color:var(--color-accent)!important}
 .text-accent{color:var(--color-accent)!important}
 .fill-accent{fill:var(--color-accent)!important}
+.fill-accent-2{fill:var(--color-accent-2)!important}
 .bg-accent-2{background-color:var(--color-accent-2)!important}
-.text-muted{color:var(--text-muted)!important}
+.text-muted{color:var(--text-default)!important;opacity:.8}
+.text-app{color:var(--bg-app)!important}
 .text-default{color:var(--text-default)!important}
 .bg-muted{background-color:var(--surface-muted)!important}
 .bg-app{background-color:var(--bg-app)!important}
 .bg-surface{background-color:var(--surface)!important}
 .border-subtle{border-color:var(--border-subtle)!important}
+.border-app{border-color:var(--bg-app)!important}
 .ring-accent{--tw-ring-color:var(--color-accent)!important}
 .gradient-primary{background:linear-gradient(90deg,var(--color-accent),var(--color-accent-2))!important}
 
+/* Opacity variants of primary using RGBA derived from #80A1BA */
+.bg-primary-90{background-color:rgba(128,161,186,0.9)!important}
+.bg-primary-50{background-color:rgba(128,161,186,0.5)!important}
+.bg-primary-20{background-color:rgba(128,161,186,0.2)!important}
+
 /* Buttons */
-.btn-primary{background:var(--color-accent);color:white}
+.btn-primary{background:var(--color-accent);color:var(--bg-app)}
 .btn-primary:hover{filter:brightness(0.98)}
 .btn-primary-outline{border:1px solid var(--color-accent);color:var(--color-accent);background:transparent}
 .btn-secondary{background:var(--surface);border:1px solid var(--border-subtle);color:var(--text-default)}

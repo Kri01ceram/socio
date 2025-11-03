@@ -28,10 +28,10 @@ const Connections = () => {
       <div className="max-w-6xl mx-auto p-6">
         {/* Title */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">
+          <h1 className="text-3xl font-bold text-default mb-2">
             Connections
           </h1>
-          <p className="text-slate-600">
+          <p className="text-muted">
             Manage your network and discover new connections
           </p>
         </div>
@@ -43,7 +43,7 @@ const Connections = () => {
               className="flex flex-col items-center justify-center gap-1 card h-20 w-40"
             >
               <b>{item.value.length}</b>
-              <p className="text-slate-600">{item.label}</p>
+              <p className="text-default/80">{item.label}</p>
             </div>
           ))}
         </div>
@@ -55,14 +55,14 @@ const Connections = () => {
               key={tab.label}
               className={`flex items-center px-3 py-1 text-sm rounded-md transition-colors ${
                 currentTab === tab.label
-                  ? "bg-accent text-white"
-                  : "text-gray-600 hover:text-black"
+                  ? "bg-accent text-app"
+                  : "text-default/70 hover:text-default"
               }`}
             >
               <tab.icon className="w-4 h-4" />
               <span className="ml-1">{tab.label}</span>
               {tab.count !== undefined && (
-                <span className="ml-2 text-xs bg-gray-100 text-gray-700 px-2 py-0.5 rounded-full">
+                <span className="ml-2 text-xs chip text-default/80">
                   {tab.count}
                 </span>
               )}
@@ -84,32 +84,32 @@ const Connections = () => {
                   className="rounded-full w-12 h-12 shadow-md mx-auto"
                 />
                 <div className="flex-1">
-                  <p className="font-medium text-slate-700">{user.full_name}</p>
-                  <p className="text-slate-500">@{user.username}</p>
-                  <p className="text-sm text-gray-600">
+                  <p className="font-medium text-default">{user.full_name}</p>
+                  <p className="text-default/80">@{user.username}</p>
+                  <p className="text-sm text-default/80">
                     {user.bio.slice(0, 30)}...
                   </p>
                   <div className="flex max-sm:flex-col gap-2 mt-4">
                     {
                       <button
                         onClick={() => navigate(`/profile/${user._id}`)}
-                        className="w-full p-2 text-sm rounded btn-primary active:scale-95 transition text-white cursor-pointer"
+                        className="w-full p-2 text-sm rounded btn-primary active:scale-95 transition text-app cursor-pointer"
                       >
                         View Profile
                       </button>
                     }
                     {currentTab === "Following" && (
-                      <button className="w-full p-2 text-sm rounded bg-slate-100 hover:bg-slate-200 text-black active:scale-95 transition cursor-pointer">
+                      <button className="w-full p-2 text-sm rounded btn-secondary active:scale-95 transition cursor-pointer">
                         Unfollow
                       </button>
                     )}
                     {currentTab === "Pending" && (
-                      <button className="w-full p-2 text-sm rounded bg-slate-100 hover:bg-slate-200 text-black active:scale-95 transition cursor-pointer">
+                      <button className="w-full p-2 text-sm rounded btn-secondary active:scale-95 transition cursor-pointer">
                         Accept
                       </button>
                     )}
                     {currentTab === "Connections" && (
-                      <button onClick={() => navigate(`/messages/${user._id}`)} className='w-full p-2 text-sm rounded bg-slate-100 hover:bg-slate-200 text-slate-800 active:scale-95 transition cursor-pointer flex items-center justify-center gap-1'>
+                      <button onClick={() => navigate(`/messages/${user._id}`)} className='w-full p-2 text-sm rounded btn-secondary active:scale-95 transition cursor-pointer flex items-center justify-center gap-1'>
                         <MessageSquare className="w-4 h-4" />
                         Message
                       </button>

@@ -24,9 +24,9 @@ const StoriesBar = () => {
           <div onClick={() => setShowModal(true)} className="rounded-lg shadow-sm min-w-30 max-w-30 max-h-40 aspect-[3/4] cursor-pointer hover:shadow-md transition-all duration-200 border-2 border-dashed border-subtle bg-muted">
           <div className="h-full flex flex-col items-center justify-center p-4">
             <div className="size-10 bg-accent rounded-full flex items-center justify-center mb-3">
-              <Plus className="h-5 w-5 text-white" />
+              <Plus className="h-5 w-5 text-app" />
             </div>
-            <p className="text-sm font-medium text-gray-700 text-center">
+            <p className="text-sm font-medium text-default text-center">
               Create Stories
             </p>
           </div>
@@ -39,16 +39,16 @@ const StoriesBar = () => {
             <img
               src={story.user.profile_picture}
               alt=""
-              className="absolute size-8 top-3 left-3 z-10 rounded-full ring ring-gray-100 shadow"
+              className="absolute size-8 top-3 left-3 z-10 rounded-full ring ring-accent shadow"
             />
-            <p className="absolute top-18 left-3 text-white/60 text-sm truncate max-w-24">
+            <p className="absolute top-18 left-3 text-app/60 text-sm truncate max-w-24">
               {story.content}
             </p>
-            <p className="text-white absolute bottom-1 right-2 z-10 text-xs">
+            <p className="text-app absolute bottom-1 right-2 z-10 text-xs">
               {moment(story.createdAt).fromNow()}
             </p>
             {story.media_type !== "text" && (
-              <div className="absolute inset-0 bg-black z-1 rounded-lg overflow-hidden">
+              <div className="absolute inset-0 bg-primary-90 z-1 rounded-lg overflow-hidden">
                 {story.media_type === "image" ? (
                   <img
                     src={story.media_url}
