@@ -84,14 +84,14 @@ const StorieModel = ({ setShowModal }) => {
               setPreviewUrl(null);
             }}
             className={`flex-1 flex items-center justify-center gap-2 p-2 rounded ${
-              mode === "text" ? "bg-white text-black" : "bg-zinc-800"
+              mode === "text" ? "bg-surface text-default" : "bg-zinc-800 text-white"
             }`}
           >
             <TextIcon size={18} /> Text
           </button>
           <label
             className={`flex-1 flex items-center justify-center gap-2 p-2 rounded cursor-pointer ${
-              mode === "media" ? "bg-white text-black" : "bg-zinc-800"
+              mode === "media" ? "bg-surface text-default" : "bg-zinc-800 text-white"
             }`}
           >
             <input

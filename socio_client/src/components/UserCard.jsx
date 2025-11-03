@@ -16,7 +16,7 @@ const currentUser = dummyUserData
 return (
   <div
     key={user._id}
-    className="p-4 pt-6 flex flex-col justify-between w-72 shadow border border-gray-200 rounded-md"
+    className="card p-4 pt-6 flex flex-col justify-between w-72"
   >
     <div className="text-center">
       <img
@@ -35,10 +35,10 @@ return (
       )}
     </div>
     <div className="flex items-center justify-center gap-2 mt-4 text-xs text-gray-600">
-      <div className="flex items-center gap-1 border border-gray-300 rounded-full px-3 py-1">
+      <div className="flex items-center gap-1 chip">
         <MapPin className="w-4 h-4" /> {user.location}
       </div>
-      <div className="flex items-center gap-1 border border-gray-300 rounded-full px-3 py-1">
+      <div className="flex items-center gap-1 chip">
         <span>{user.followers.length}</span> Followers
       </div>
     </div>
@@ -54,8 +54,7 @@ return (
       </button>
       <button
         onClick={handleConnectionRequest}
-        className="flex items-center justify-center w-16 border text-slate-500 group rounded-md
-cursor-pointer active:scale-95 transition"
+        className="flex items-center justify-center w-16 btn-secondary text-slate-600 group rounded-md cursor-pointer active:scale-95 transition"
       >
         {currentUser?.connections.includes(user._id) ? (
           <MessageCircle className="w-5 h-5 group-hover:scale-105 transition" />

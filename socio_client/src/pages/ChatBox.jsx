@@ -46,7 +46,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
                   }`}
                 >
                   <div
-                    className={`p-2 text-sm max-w-sm bg-white text-slate-700 rounded-lg shadow-sm ${
+                    className={`p-2 text-sm max-w-sm bg-surface text-slate-700 rounded-lg shadow-sm ${
                       message.to_user_id !== user._id
                         ? "rounded-bl-none"
                         : "rounded-br-none"
@@ -67,7 +67,7 @@ messagesEndRef.current?.scrollIntoView({behavior: "smooth" })
           </div>
         </div>
         <div className="px-4">
-          <div className="flex items-center gap-3 p-1.5 bg-white w-full max-w-xl mx-auto border border-gray-200 shadow-sm rounded-lg mb-5">
+          <div className="flex items-center gap-3 p-1.5 bg-surface w-full max-w-xl mx-auto border border-subtle shadow-sm rounded-lg mb-5">
             <input
               type="text"
               className="flex-1 outline-none text-slate-700"

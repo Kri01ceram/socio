@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Messages = () => {
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen relative bg-slate-50">
+    <div className="min-h-screen relative bg-app">
       <div className="max-w-6xl mx-auto p-6">
         {/* Title */}
         <div className="mb-8">
@@ -18,7 +18,7 @@ const Messages = () => {
           {dummyConnectionsData.map((user) => (
             <div
               key={user._id}
-              className="max-w-xl flex flex-warp gap-5 p-6 bg-white shadow rounded-md"
+              className="max-w-xl flex flex-warp gap-5 p-6 card"
             >
               <img
                 src={user.profile_picture}

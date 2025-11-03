@@ -80,7 +80,7 @@ const Storyviewer = ({ viewStory, setViewStory }) => {
       {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gray-700">
         <div
-          className="h-full bg-white transition-all duration-100 linear"
+          className="h-full bg-surface transition-all duration-100 linear"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
