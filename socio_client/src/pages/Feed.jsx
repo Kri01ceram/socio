@@ -20,8 +20,10 @@ const Feed = () => {
   return (!loading) ? (
     <div className='h-full overflow-y-scroll no-scrollbar py-10 xl:pr-5 flex items-start justify-center xl:gap-8'>
       <div className='w-screen sm:w-[calc(100vw-240px)] lg:max-w-2xl'>
-        <StoriesBar />
-        <div className='p-4 space-y-6'>
+        <div className='px-4'>
+          <StoriesBar />
+        </div>
+        <div className='px-4 pt-4 space-y-6'>
         {feeds.map((post) =>
         <PostCard post={post} key={post._id}/>)}
         </div>
