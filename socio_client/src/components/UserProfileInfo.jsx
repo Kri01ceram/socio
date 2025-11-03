@@ -54,7 +54,7 @@ return (
           </span>
         </div>
         <div
-          className="flex items-center gap-6 mt-6 border-t border-subtle pt-4"
+          className="flex items-center gap-6 mt-6 pt-4"
         >
           <div>
             <span className="sm:text-xl font-bold text-default">
