@@ -10,15 +10,15 @@ const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return user ? (
-    <div className='w-full flex h-screen'>
+    <div className='w-full flex h-screen bg-app text-default'>
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      <div className='flex-1 bg-app'>
+      <div className='flex-1'>
         <Outlet />
       </div>
       {sidebarOpen ? (
-  <X className='absolute top-3 right-3 p-2 z-100 bg-surface rounded-md shadow w-10 h-10 text-default/70 sm:hidden' onClick={() => setSidebarOpen(false)} />
+  <X className='absolute top-4 right-4 p-2 z-100 bg-white/10 backdrop-blur-xl rounded-xl shadow-lg w-11 h-11 text-default hover:text-white transition sm:hidden' onClick={() => setSidebarOpen(false)} />
       ) : (
-  <Menu className='absolute top-3 right-3 p-2 z-100 bg-surface rounded-md shadow w-10 h-10 text-default/70 sm:hidden' onClick={() => setSidebarOpen(true)} />
+  <Menu className='absolute top-4 right-4 p-2 z-100 bg-white/10 backdrop-blur-xl rounded-xl shadow-lg w-11 h-11 text-default hover:text-white transition sm:hidden' onClick={() => setSidebarOpen(true)} />
       )}
     </div>
   ) : (

@@ -11,17 +11,17 @@
 
 /* Theme variables (4-color palette) */
 :root{
-  /* Provided palette */
-  --color-primary: #222831;  /* brand/darkest */
-  --color-accent:  #00ADB5;  /* accent */
-  --color-accent-2:#393E46;  /* secondary accent */
-  --bg-app:        #EEEEEE;  /* app background */
+  /* Vibrant twilight palette */
+  --color-primary: #0f172a;  /* deep indigo */
+  --color-accent:  #6366f1;  /* electric indigo */
+  --color-accent-2:#ef4444;  /* coral pop */
+  --bg-app:        #0b1120;  /* night sky */
 
-  /* Derived roles constrained to palette */
-  --surface:       #EEEEEE;  /* cards match app bg; separated by border */
-  --surface-muted: #EEEEEE;  /* keep muted light for contrast */
-  --border-subtle: #393E46;  /* subtle borders */
-  --text-default:  #222831;  /* main text */
+  /* Derived roles tuned for high contrast */
+  --surface:       rgba(15,23,42,0.85);  /* frosted panels */
+  --surface-muted: rgba(30,41,59,0.9);
+  --border-subtle: rgba(99,102,241,0.35);
+  --text-default:  #e2e8f0;  /* light slate */
 }
 
 /* Semantic utilities (kept small to avoid fighting Tailwind) */
@@ -36,24 +36,25 @@
 .text-app{color:var(--bg-app)!important}
 .text-default{color:var(--text-default)!important}
 .bg-muted{background-color:var(--surface-muted)!important}
-.bg-app{background-color:var(--bg-app)!important}
+.bg-app{background:radial-gradient(circle at top,#1d2951,transparent 55%),radial-gradient(circle at bottom,#0f172a,transparent 60%),var(--bg-app)!important}
 .bg-surface{background-color:var(--surface)!important}
-.border-subtle{border-color:rgba(57,62,70,0.25)!important}
+.border-subtle{border-color:var(--border-subtle)!important}
 .border-app{border-color:var(--bg-app)!important}
 .ring-accent{--tw-ring-color:var(--color-accent)!important}
 .gradient-primary{background:linear-gradient(90deg,var(--color-accent),var(--color-accent-2))!important}
 
 /* Opacity variants of primary using RGBA derived from #222831 */
-.bg-primary-90{background-color:rgba(34,40,49,0.9)!important}
-.bg-primary-50{background-color:rgba(34,40,49,0.5)!important}
-.bg-primary-20{background-color:rgba(34,40,49,0.2)!important}
+.bg-primary-90{background-color:rgba(15,23,42,0.9)!important}
+.bg-primary-50{background-color:rgba(15,23,42,0.5)!important}
+.bg-primary-20{background-color:rgba(15,23,42,0.2)!important}
 
 /* Buttons */
-.btn-primary{background:var(--color-accent);color:var(--bg-app);box-shadow:0 2px 6px rgba(34,40,49,0.12)}
-.btn-primary:hover{filter:brightness(0.98)}
-.btn-primary-outline{border:1px solid var(--color-accent);color:var(--color-accent);background:transparent}
-.btn-secondary{background:var(--surface);border:none;box-shadow:0 1px 3px rgba(34,40,49,0.12);color:var(--text-default)}
+.btn-primary{background:linear-gradient(135deg,var(--color-accent),#8b5cf6);color:#f8fafc;box-shadow:0 10px 30px rgba(99,102,241,0.35);transition:transform .2s ease,box-shadow .2s ease}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(99,102,241,0.45)}
+.btn-primary-outline{border:1px solid rgba(226,232,240,0.5);color:var(--text-default);background:rgba(15,23,42,0.4);backdrop-filter:blur(12px)}
+.btn-secondary{background:rgba(15,23,42,0.55);border:1px solid rgba(148,163,184,0.3);box-shadow:0 12px 30px rgba(15,23,42,0.35);color:var(--text-default);backdrop-filter:blur(12px)}
 
 /* Composites */
-.card{background:var(--surface);border:none;border-radius:0.75rem;box-shadow:0 2px 8px rgba(34,40,49,0.10),0 8px 24px rgba(34,40,49,0.08)}
-.chip{background:var(--surface-muted);border:none;border-radius:9999px;padding:0.125rem 0.5rem;box-shadow:0 1px 2px rgba(34,40,49,0.10)}
+.card{background:rgba(15,23,42,0.72);border:1px solid rgba(148,163,184,0.25);border-radius:1.25rem;backdrop-filter:blur(18px);box-shadow:0 20px 45px rgba(8,11,24,0.55);transition:transform .2s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-2px);box-shadow:0 26px 60px rgba(8,11,24,0.6)}
+.chip{background:rgba(99,102,241,0.12);border:none;border-radius:9999px;padding:0.25rem 0.75rem;color:var(--text-default);box-shadow:inset 0 1px 0 rgba(255,255,255,0.08);text-transform:uppercase;letter-spacing:.08em;font-size:0.6rem}

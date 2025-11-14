@@ -27,12 +27,12 @@ setPosts (dummyPostsData)
   fetchUser()
   }, [])
   return user ? (
-    <div className="relative h-full overflow-y-scroll bg-app p-6">
-      <div className="max-w-3xl mx-auto">
+    <div className="relative h-full overflow-y-scroll bg-app">
+      <div className="max-w-5xl mx-auto px-4 sm:px-8 py-12">
         {/* Profile Card */}
-        <div className="card rounded-2xl overflow-hidden">
+        <div className="card rounded-3xl overflow-hidden border border-white/10">
           {/* Cover Photo */}
-          <div className="h-40 md:h-56 bg-muted">
+          <div className="h-48 md:h-60 bg-gradient-to-r from-indigo-600/30 to-rose-500/20 relative">
             {user.cover_photo && (
               <img
                 src={user.cover_photo}
@@ -40,6 +40,7 @@ setPosts (dummyPostsData)
                 className="w-full h-full object-cover"
               />
             )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
           </div>
           {/* User Info */}
           <UserProfileInfo
@@ -50,18 +51,18 @@ setPosts (dummyPostsData)
           />
         </div>
         {/* Tabs */}
-        <div className="mt-6">
-          <div className="card p-1 flex max-w-md mx-auto rounded-xl">
+        <div className="mt-10">
+          <div className="card p-1 flex max-w-lg mx-auto rounded-2xl backdrop-blur-xl">
             {["posts", "media", "likes"].map((tab) => (
               <button
                 onClick={() => {
                   setActiveTab(tab);
                 }}
                 key={tab}
-                className={`flex-1 px-4 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
+                className={`flex-1 px-5 py-3 text-sm font-semibold rounded-xl transition-all cursor-pointer ${
                   activeTab === tab
-                    ? "bg-accent text-app"
-                    : "text-default/70 hover:text-default"
+                    ? "bg-gradient-to-r from-indigo-500/40 to-rose-400/40 text-default shadow"
+                    : "text-default/60 hover:text-default hover:bg-white/5"
                 }`}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -70,7 +71,7 @@ setPosts (dummyPostsData)
           </div>
           {/* Posts */}
           {activeTab === "posts" && (
-            <div className="mt-6 flex flex-col items-center gap-6">
+            <div className="mt-8 flex flex-col items-center gap-8">
               {posts.map((post) => (
                 <PostCard key={post._id} post={post} />
               ))}

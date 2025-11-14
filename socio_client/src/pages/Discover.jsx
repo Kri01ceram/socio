@@ -21,25 +21,26 @@ const Discover = () => {
   };
   return (
     <div className="min-h-screen bg-app">
-      <div className="max-w-6xl mx-auto p-6">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 space-y-10">
         {/* Title */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-default mb-2">
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.6em] text-default/40">Discover</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-default">
             Discover People
           </h1>
-          <p className="text-muted">
+          <p className="text-default/70 text-base max-w-xl">
             Connect with amazing people and grow your network
           </p>
         </div>
         {/* Search */}
-        <div className="mb-8 card">
-          <div className="p-6">
+        <div className="card border border-white/10">
+          <div className="p-6 sm:p-8">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-default/60 w-5 h-5" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-default/50 w-5 h-5" />
               <input
                 type="text"
                 placeholder="Search people by name, username, bio, or location..."
-                className="pl-10 sm:pl-12 py-2 w-full border border-subtle rounded-md max-sm:text-sm text-default placeholder:text-default/60 bg-surface"
+                className="pl-12 sm:pl-14 py-3 w-full rounded-xl text-default placeholder:text-default/50 bg-white/5 border border-white/10 focus:ring-2 focus:ring-indigo-500/60 focus:outline-none transition"
                 onChange={(e) => setInput(e.target.value)}
                 value={input}
                 onKeyUp={handleSearch}
@@ -48,7 +49,7 @@ const Discover = () => {
           </div>
         </div>
         {/* Users List */}
-        <div className="flex flex-wrap gap-6">
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {users.map((user) => (
           <UserCard key={user._id} user={user} />
         ))}

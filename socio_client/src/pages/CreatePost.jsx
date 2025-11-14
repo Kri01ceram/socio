@@ -20,51 +20,51 @@ const handleSubmit = async () => {
 }
   return (
   <div className="min-h-screen bg-app">
-      <div className="max-w-6xl mx-auto p-6">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 py-12 space-y-10">
         {/* Title */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-default mb-2">
+        <div className="space-y-3">
+          <p className="text-xs uppercase tracking-[0.6em] text-default/40">Create</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-default">
             Create Post
           </h1>
-          <p className="text-muted">Share your thoughts with the world</p>
+          <p className="text-default/70 text-base max-w-xl">Share your thoughts with the world</p>
         </div>
         {/* Form */}
-  <div className="max-w-xl card p-4 sm:p-8 sm:pb-3 space-y-4">
+  <div className="max-w-2xl card p-6 sm:p-10 space-y-6 border border-white/10">
           {/* Header */}
-          <div className="flex items-center gap-3">
-            {" "}
+          <div className="flex items-center gap-4">
             <img
               src={user.profile_picture}
               alt=""
-              className="w-12 h-12 rounded-full shadow"
+              className="w-14 h-14 rounded-full border border-white/15 shadow-lg"
             />
             <div>
-              <h2 className="font-semibold">{user.full_name}</h2>
-              <p className="text-sm text-muted">@{user.username}</p>
+              <h2 className="text-lg font-semibold text-default">{user.full_name}</h2>
+              <p className="text-sm text-default/60 uppercase tracking-[0.4em]">@{user.username}</p>
             </div>
           </div>
           {/* Text Area */}
           <textarea
-            className="w-full resize-none max-h-20 mt-4 text-sm outline-none placeholder-gray-400"
+            className="w-full resize-none min-h-28 mt-6 text-base text-default bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none placeholder:text-default/40 focus:ring-2 focus:ring-indigo-500/60"
             placeholder="What's happening?"
             onChange={(e) => setContent(e.target.value)}
             value={content}
           />
           {/* Images */}
           {images.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-4">
               {images.map((image, i) => (
                 <div key={i} className="relative group">
                   <img
                     src={URL.createObjectURL(image)}
-                    className="h-20 rounded-md"
+                    className="h-24 w-full object-cover rounded-xl"
                     alt=""
                   />
                   <div
                     onClick={() =>
-                      setImages(images.filter((_, index) => index !== 1))
+                      setImages(images.filter((_, index) => index !== i))
                     }
-                    className="absolute hidden group-hover:flex justify-center items-center top-0 right-0 bottom-0 left-0 bg-primary-20 rounded-md cursor-pointer"
+                    className="absolute hidden group-hover:flex justify-center items-center inset-0 bg-primary-50 rounded-xl cursor-pointer"
                   >
                     <X className="w-6 h-6 text-app" />
                   </div>
@@ -72,12 +72,15 @@ const handleSubmit = async () => {
               ))}
             </div>
           )}
-          <div className="flex items-center justify-between pt-3 border-t border-subtle">
+          <div className="flex flex-col sm:flex-row items-center gap-4 justify-between pt-6 border-t border-white/10">
             <label
               htmlFor="images"
-              className="flex items-center gap-2 text-sm text-default/70 hover:text-default transition cursor-pointer"
+              className="flex items-center gap-3 text-sm text-default/70 hover:text-default transition cursor-pointer"
             >
-              <Image className="size-6" />
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10">
+                <Image className="w-5 h-5" />
+              </span>
+              <span>Add images</span>
             </label>
             <input
               type="file"
@@ -96,7 +99,7 @@ const handleSubmit = async () => {
                   error: <p>Post Not Added</p>,
                 })
               }
-              className="text-sm btn-primary hover:opacity-95 active:scale-95 transition text-app font-medium px-8 py-2 rounded-md cursor-pointer"
+              className="text-sm btn-primary hover:opacity-95 active:scale-95 transition text-app font-semibold px-10 py-3 rounded-2xl cursor-pointer"
             >
               Publish Post
             </button>
