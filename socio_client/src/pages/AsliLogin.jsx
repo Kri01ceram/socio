@@ -30,8 +30,17 @@ const AsliLogin = () => {
            </div>
            {/* right side : Login form */}
            <div className='flex-1 flex items-center justify-center p-6 sm:p-10 relative z-10'>
-             <div className='card w-full max-w-md p-6 sm:p-10 border border-white/10'>
-               <SignIn />
+             <div className='card w-full max-w-md p-6 sm:p-10 border border-white/10 flex items-center justify-center'>
+               <div className='w-full flex justify-center'>
+                 <SignIn
+                   appearance={{
+                     elements: {
+                       rootBox: 'mx-auto flex justify-center',
+                       card: 'w-full',
+                     },
+                   }}
+                 />
+               </div>
              </div>
            </div>
     </div>
