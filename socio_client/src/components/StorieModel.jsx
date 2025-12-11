@@ -27,7 +27,7 @@ const StorieModel = ({ setShowModal }) => {
   };
 
   return (
-  <div className="fixed inset-0 z-110 min-h-screen bg-primary-90 backdrop-blur text-app flex items-center justify-center p-4">
+  <div className="fixed inset-0 z-[1200] min-h-screen bg-primary-90 backdrop-blur text-app flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-4 flex items-center justify-between">
           <button
