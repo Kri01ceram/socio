@@ -43,6 +43,6 @@ export const updateUserData = async (req, res) => {
         }
       catch (error) {
         console.log(error)
-        return res.status(500).json({message: 'Internal Server Error'});
+        return res.status(500).json({message: 'Server Error'});
     }
 }
