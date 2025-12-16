@@ -91,6 +91,12 @@ export const followUser = async (req, res) => {
         if(user.following.includes(id)) {
             return res.status(404).json({message: 'User not found'});
         }
+        user.following.push(id);
+        await user.save();
+        const toUser = await User.findById(id);
+        toUser.followers.push(userId);
+        await toUser.save();
+        res.json({success: true, message: 'User followed successfully'});
     } catch (error) {
         console.log(error)
         return res.status(500).json({message: 'Internal Server Error'});
