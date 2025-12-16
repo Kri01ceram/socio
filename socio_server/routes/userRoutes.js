@@ -1,6 +1,6 @@
 import express from "express";
 import { getUserData,discoverUsers,updateUserData,followUser,unfollowUser } from "../controllers/userController.js";
-import { protect } from "../middlewares/auth.js";
+import { protect } from "../middleware/auth.js";
 import { upload } from "../configs/multer.js";
 
 const userRouter = express.Router();
