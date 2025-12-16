@@ -103,6 +103,8 @@ export const discoverUsers = async (req, res) => {
                 }
             ]
         })
+        const filteredUsers = allUsers.filter(user => user._id.toString() !== userId);
+        res.json({users: filteredUsers});
     } catch (error) {
         console.log(error)
         return res.status(500).json({message: 'Internal Server Error'});
