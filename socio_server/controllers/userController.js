@@ -83,31 +83,19 @@ export const updateUserData = async (req, res) => {
         return res.status(500).json({message: 'Server Error'});
     }
 }
-export const discoverUsers = async (req, res) => {
+export const followUser = async (req, res) => {
     try {
         const {userId} = await req.auth();
-        const {input} = req.body;
-        const allUsers = await User.find({
-            $or: [
-                {
-                    username: new RegExp(input,'i')
-                },
-                {
-                    email: new RegExp(input,'i')    
-                },
-                {
-                    full_name: new RegExp(input,'i')
-                },
-                {
-                    locatio: new RegExp(input,'i')
-                }
-            ]
-        })
-        const filteredUsers = allUsers.filter(user => user._id.toString() !== userId);
-        res.json({users: filteredUsers});
+        const {id} = req.body;
+        const user = await User.findById(id);
+        if(user.following.includes(id)) {
+            return res.status(404).json({message: 'User not found'});
+        }
     } catch (error) {
         console.log(error)
         return res.status(500).json({message: 'Internal Server Error'});
     }
 }
+
+
 
