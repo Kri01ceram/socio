@@ -6,6 +6,8 @@ import 'dotenv/config';
 import connectDB from './configs/db.js';
 import { serve } from 'inngest/express';
 import { clerkMiddleware } from '@clerk/express'
+import { use } from 'react';
+import userRouter from './routes/userRoutes.js';
 
 
 const app = express();
@@ -38,7 +40,7 @@ app.get('/_logs', (req, res) => {
 
 app.get('/', (req, res) => res.send('Socio Server is running'));
 app.use('/api/inngest', serve({ client: inngest, functions }));
-
+app.use('api/users' , userRouter);
 const PORT = process.env.PORT || 4000;
 
 async function start() {
