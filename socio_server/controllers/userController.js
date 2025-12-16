@@ -4,6 +4,8 @@ import User from "../models/user";
 import { upload } from "../configs/multer.js";
 import path from "path";
 import fs from "fs";
+import ImageKit from "imagekit";
+import imagekit from "../configs/imagekit.js";  
 
 export const getUserData = async (req, res) => {
     try {
@@ -40,9 +42,70 @@ export const updateUserData = async (req, res) => {
         }
         const profile  = req.files.profile && req.files.profile[0];
         const cover  = req.files.cover && req.files.cover[0];
+        
+        if(profile) {
+            const buffer = fs.readFileSync(profile.path);
+            const response = await imagekit.upload({
+                file : buffer,
+                fileName : profile.originalname,    
+        });
+           const url = imagekit.url({
+                path : response.filePath,
+                transformation: [
+                    {quality : 'auto'},
+                    {format: 'webp'},
+                    {width: '512'}
+                ]
+           });
+              updatedUser.profile_picture = url;
         }
+        if(cover) {
+            const buffer = fs.readFileSync(cover.path);
+            const response = await imagekit.upload({
+                file : buffer,
+                fileName : cover.originalname,    
+        });
+           const url = imagekit.url({
+                path : response.filePath,
+                transformation: [
+                    {quality : 'auto'},
+                    {format: 'webp'},
+                    {width: '1280'}
+                ]
+           });
+              updatedUser.cover_photo = url;
+        }
+        const user = await User.findOneAndUpdate(userId, updatedUser, {new: true});
+        res.json({success: true,user, message: 'User updated successfully'});
+    }
       catch (error) {
         console.log(error)
         return res.status(500).json({message: 'Server Error'});
     }
 }
+export const discoverUsers = async (req, res) => {
+    try {
+        const {userId} = await req.auth();
+        const {input} = req.body;
+        const allUsers = await User.find({
+            $or: [
+                {
+                    username: new RegExp(input,'i')
+                },
+                {
+                    email: new RegExp(input,'i')    
+                },
+                {
+                    full_name: new RegExp(input,'i')
+                },
+                {
+                    locatio: new RegExp(input,'i')
+                }
+            ]
+        })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({message: 'Internal Server Error'});
+    }
+}
+
