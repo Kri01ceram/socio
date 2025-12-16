@@ -87,7 +87,7 @@ export const followUser = async (req, res) => {
     try {
         const {userId} = await req.auth();
         const {id} = req.body;
-        const user = await User.findById(id);
+        const user = await User.findById(userId);
         if(user.following.includes(id)) {
             return res.status(404).json({message: 'User not found'});
         }
@@ -102,6 +102,21 @@ export const followUser = async (req, res) => {
         return res.status(500).json({message: 'Internal Server Error'});
     }
 }
-
+export const unfollowUser = async (req, res) => {
+    try {
+        const {userId} = await req.auth();
+        const {id} = req.body;
+        const user = await User.findById(userId);
+        user.following = user.following.filter(followId => followId.toString() !== id);
+        await user.save();
+        const toUser = await User.findById(id);
+        toUser.followers = toUser.followers.filter(followerId => followerId.toString() !== userId);
+        await toUser.save();
+        res.json({success: true, message: 'User unfollowed successfully'});
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({message: 'Internal Server Error'});
+    }
+}
 
 
