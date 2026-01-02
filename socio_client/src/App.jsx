@@ -18,7 +18,7 @@ const App = () => {
     if(user){
       getToken().then((token)=>console.log(token))
     }
-  },[use])
+  },[user])
 
   return (
     <>
