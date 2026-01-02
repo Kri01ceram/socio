@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <>
-    <Toaste />
+    <Toaster />
     <Routes>
       <Route path="/" element={user ?<Layout /> : <Login />} >
       <Route index element={<Feed />} />
